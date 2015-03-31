@@ -1,0 +1,26 @@
+{
+  "name": "fileupload",
+  "version": "0.5.0",
+  "description": "A MongoDB Gridfs file server example written with Express and Multer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Expres",
+    "GridFS",
+    "MongoDB",
+    "Multer",
+    "fileupload"
+  ],
+  "author": "Rolf Behrens",
+  "license": "MIT",
+  "dependencies": {
+    "basic-auth-connect": "^1.0.0",
+    "express": "^4.12.3",
+    "gridfs-stream": "^1.1.0",
+    "mongodb": "^2.0.25",
+    "multer": "^0.1.8"
+  }
+}
