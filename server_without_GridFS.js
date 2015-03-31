@@ -21,19 +21,6 @@ app.post('/upload',  multer({
   }
 }));
 
-app.get('/file/:filename', function(req,res) {
-  gfs.files.find({ filename: req.params.filename }).toArray(function (err, files) {
-    if (err) throw err;
-    res.send(files);
-  });
-});
-
-// Initialize MongoDB connection once
-MongoClient.connect("mongodb://localhost/test", function(err, database) {
-  if(err) throw err;
-  db = database;
-  gfs = Grid(db, mongo);
-});
 
 app.listen(8080); // <<---- Start Listeining to Port
 
