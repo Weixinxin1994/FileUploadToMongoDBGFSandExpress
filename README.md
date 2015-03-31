@@ -14,11 +14,16 @@ On OSX (with Homebrew)
 
 On Ubuntu 
 
-    apt-get install mongodb
+    apt-get install mongodb-org
 
 For any other systems see:
 
-https://www.mongodb.org/downloads 
+https://www.mongodb.org/downloads
+
+or 
+
+http://docs.mongodb.org/manual/installation/
+
 
 ## Start MongoDb 
 
