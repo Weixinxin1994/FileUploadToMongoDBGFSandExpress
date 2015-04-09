@@ -63,4 +63,4 @@ Install all required NodeJS - dependencies
 
 ### Download File
 
-    http://localhost:<port>/files/get/<filename>
+    http://localhost:<port>/file/get/<filename>
