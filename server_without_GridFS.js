@@ -22,7 +22,7 @@ app.post('/upload',  multer({
 }));
 
 
-app.listen(8080); // <<---- Start Listeining to Port
+app.listen(8080); // <<---- Start Listening to Port
 
 
 

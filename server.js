@@ -55,7 +55,7 @@ app.post('/upload',  multer({
     });
 });
 
-app.get('/file/get/:file', function(req,res) {
+app.get('/files/get/:file', function(req,res) {
   try {
     var readstream = gfs.createReadStream({filename:req.params.file});
     readstream.pipe(res);
@@ -67,7 +67,7 @@ app.get('/file/get/:file', function(req,res) {
 });
 
 
-app.get('/file/:filename', function(req,res) {
+app.get('/files/:filename', function(req,res) {
   gfs.files.find({ filename: req.params.filename }).toArray(function (err, files) {
     if (err) throw err;
     res.send(files);
@@ -76,6 +76,20 @@ app.get('/file/:filename', function(req,res) {
 
 
 
+app.get('/files', function(req,res) {
+  var emailID = req.cookies['sender'] || null;
+
+  mongoDB.getGFS().files.find({}).toArray(function (err, files) {
+   if (err) {
+      res.send(400);
+      throw err;
+    }
+    else {
+      res.send(files);
+    }
+  });
+});
+
 // Initialize MongoDB connection once
 MongoClient.connect("mongodb://localhost/test", function(err, database) {
   if(err) throw err;
@@ -83,7 +97,7 @@ MongoClient.connect("mongodb://localhost/test", function(err, database) {
   gfs = Grid(db, mongo);
 });
 
-app.listen(8080); // <<---- Start Listeining to Port
+app.listen(8080); // <<---- Start Listening to Port
 
 
 
