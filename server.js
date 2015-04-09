@@ -77,15 +77,14 @@ app.get('/files/:filename', function(req,res) {
 
 
 app.get('/files', function(req,res) {
-  var emailID = req.cookies['sender'] || null;
 
-  mongoDB.getGFS().files.find({}).toArray(function (err, files) {
+  gfs.files.find({}).toArray(function (err, files) {
    if (err) {
       res.send(400);
       throw err;
     }
     else {
-      res.send(files);
+      res.json(files);
     }
   });
 });
